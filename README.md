@@ -4,8 +4,8 @@ This component is created using <a href="http://fineuploader.com/">FineUploader<
 
 
 <h3>Instruction for use:</h3>
-Copy css,js and imaged to their respective folders.
-Copy AjaxFileUploadComponent.php to component
+Copy css,js and imaged to their respective folders.<br>
+Copy AjaxFileUploadComponent.php to component folder.
 <h3>Basic Example :</h3>
 
 <pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"fine-uploader"</span><span class="nt">&gt;</span>
@@ -28,5 +28,9 @@ $('#fine-uploader').fineUploader({
     //do something
   });
 </pre>
-
-<h4>You can find detailed documentation about file uploader <a href="https://github.com/valums/file-uploader/">here</a>.</h4>
+<pre>
+In your action, use it as :
+return $this->AjaxFileUpload->uploadFiles('files/',$this->permitted);
+where permitted is : $permitted = array("jpeg","bmp","jpg","png");
+</pre>
+<h3>You can find detailed documentation about file uploader <a href="https://github.com/valums/file-uploader/">here</a>.</h3>
