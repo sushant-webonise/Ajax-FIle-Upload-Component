@@ -19,7 +19,7 @@ Copy AjaxFileUploadComponent.php to component
 <pre>
 $('#fine-uploader').fineUploader({
     request: {
-        endpoint: '/upload/endpoint'
+        endpoint: '/controller/action'
     }
 }).on('error', function(event, id, filename, reason) {
      //do something
