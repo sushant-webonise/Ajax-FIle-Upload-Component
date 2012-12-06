@@ -40,7 +40,7 @@ class AjaxFileUploadComponent extends Object
 
         // create the folder if it does not exist
         if (!is_dir($folder)) {
-            mkdir($folder_url, 1777, true);
+            mkdir($folder_url, 0777, true);
 
             //change the chmod of medium project directory
             chmod($folder_url, 0777);
@@ -95,7 +95,10 @@ class AjaxFileUploadComponent extends Object
         if(!$replaceOldFile){
             /// don't overwrite previous files that were uploaded
             while (file_exists($folder_url . DIRECTORY_SEPARATOR . $filename . $ext)) {
-                $filename .= rand(10, 99);
+//                $filename .= rand(10, 99);
+                ini_set('date.timezone', 'Europe/London');
+                $now = strtotime("now") . "_";
+                $filename = $now . $filename;
             }
         }
 
@@ -234,3 +237,4 @@ class qqUploadedFileForm {
         return $_FILES['qqfile']['size'];
     }
 }
+
